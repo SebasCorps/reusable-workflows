@@ -4,7 +4,7 @@ on:
     branches:
       - "**"
     paths:
-      - docker/selenium-runner/**
+      - selenium-runner/**
       - .github/workflows/build-selenium-runner.yml
 permissions:
   contents: read
@@ -38,8 +38,8 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v6
         with:
-          context: docker/selenium-runner
-          file: docker/selenium-runner/Dockerfile
+          context: selenium-runner
+          file: selenium-runner/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

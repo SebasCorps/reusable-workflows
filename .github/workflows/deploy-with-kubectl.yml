@@ -3,6 +3,10 @@ name: Deployment using kubectl
 on:
   workflow_call:
     inputs:
+      ENVIRONMENT:
+        description: 'Deployment Environment (e.g., STAGING, PRODUCTIONd).'
+        required: true 
+        type: string
       NAMESPACE:
         required: true
         type: string
@@ -15,6 +19,7 @@ on:
 
 jobs:
   deploy:
+    environment: ${{inputs.ENVIRONMENT}}
     env:
       NAMESPACE: ${{ inputs.NAMESPACE }}
     runs-on: github-actions-scaleset-demo

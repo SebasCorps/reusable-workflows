@@ -7,9 +7,6 @@ on:
         description: 'Deployment Environment (e.g., STAGING, PRODUCTIONd).'
         required: true 
         type: string
-      NAMESPACE:
-        required: true
-        type: string
       IMAGE_NAME:
         required: true
         type: string
@@ -21,7 +18,7 @@ jobs:
   deploy:
     environment: ${{inputs.ENVIRONMENT}}
     env:
-      NAMESPACE: ${{ inputs.NAMESPACE }}
+      NAMESPACE: ${{ vars.NAMESPACE }}
     runs-on: github-actions-scaleset-demo
     steps:
       - name: Checkout repository

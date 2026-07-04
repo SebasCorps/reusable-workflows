@@ -64,6 +64,7 @@ jobs:
         run: |
           mkdir reports/
           pytest -v \
+            --ignore=tests \
             --junitxml=reports/unit-test-results.xml \
             --cov=. \
             --cov-report=xml:reports/coverage.xml \
